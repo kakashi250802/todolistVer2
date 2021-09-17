@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import TodoForm from './../TodoForm/index';
 import Todo from './../Todo/index';
-import '../styles.scss';
+import './styles.scss';
 function TodoList() {
 
     const [todos, setTodos] = useState([]);
@@ -19,7 +19,7 @@ function TodoList() {
 
     const completeTodo = id =>{
         let updatedTodos =todos.map(todo =>{
-            if(todo){
+            if(todo.id===id){
                 todo.isComplete =!todo.isComplete;
             }
         return todo
@@ -51,6 +51,7 @@ function TodoList() {
             completeTodo={completeTodo} 
             removeTodo={removeTodo}
             updateTodo={updateTodo}
+            className ='todo-container'
             />
         </div>
     )
